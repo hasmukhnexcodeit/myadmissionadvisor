@@ -12,19 +12,14 @@ jobs:
     steps:
       - name: Deploy over SSH
         uses: appleboy/ssh-action@v1.2.0
-        with:
-            host: ${{ secrets.HOST }}
+       with:
+            host: ${{ secrets.HOST }}      # 12 spaces
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.SSH_KEY }}
             port: ${{ secrets.PORT }}
-          
-            debug: true
-            sync: true
-          
-            use_insecure_cipher: true
-            cipher: aes128-ctr,aes192-ctr,aes256-ctr
-            timeout: 60s
+            ...
             command_timeout: 10m
+                                # 10 spaces ← mismatched!
 
           script: |
             cd /home4/khatijil/public_html/myadmissionadvisor
