@@ -18,6 +18,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
 
+          use_insecure_cipher: true
+          cipher: aes128-ctr,aes192-ctr,aes256-ctr
+          timeout: 60s
+          command_timeout: 10m
+
           script: |
             cd /home4/khatijil/public_html/myadmissionadvisor
 
